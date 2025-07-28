@@ -1,0 +1,39 @@
+body {
+  background: #fefae0;
+  font-family: 'Segoe UI';
+}
+.container {
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+#balance {
+  font-size: 24px;
+  margin: 20px 0;
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+li {
+  padding: 8px;
+  margin: 5px 0;
+  border-bottom: 1px solid #ddd;
+}
+input {
+  margin: 5px 0;
+  padding: 8px;
+  width: 100%;
+}
+button {
+  padding: 10px;
+  width: 100%;
+  background: #6c5ce7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+}

@@ -1,0 +1,1649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Projects - Master Frontend Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #4c51bf;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(45deg, #4c51bf, #667eea);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #4c51bf;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #4c51bf, #667eea);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(76, 81, 191, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-top: 80px;
+            padding: 2rem 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            color: white;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: white;
+            color: #4c51bf;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Projects Section */
+        .projects-section {
+            background: white;
+            padding: 4rem 2rem;
+            margin-top: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-badge {
+            background: #e6f3ff;
+            color: #4c51bf;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            display: inline-block;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Filter Buttons */
+        .filter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.75rem 1.5rem;
+            border: 2px solid #e2e8f0;
+            background: white;
+            color: #666;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #4c51bf;
+            color: white;
+            border-color: #4c51bf;
+            transform: translateY(-2px);
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #f0f0f0;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-preview {
+            height: 200px;
+            background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-preview.calculator {
+            background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        .project-preview.todo {
+            background: linear-gradient(45deg, #43e97b 0%, #38f9d7 100%);
+        }
+
+        .project-preview.weather {
+            background: linear-gradient(45deg, #fa709a 0%, #fee140 100%);
+        }
+
+        .project-preview.quiz {
+            background: linear-gradient(45deg, #a8edea 0%, #fed6e3 100%);
+        }
+
+        .project-preview.slider {
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .project-tags {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .project-tag {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: #2d3748;
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-tech {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            background: #f7fafc;
+            color: #4a5568;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-demo {
+            background: #48bb78;
+            color: white;
+        }
+
+        .btn-code {
+            background: #2d3748;
+            color: white;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #f7fafc;
+            padding: 4rem 2rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #4c51bf;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: #666;
+            font-weight: 500;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 2rem;
+            border-radius: 15px;
+            width: 95%;
+            max-width: 1000px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+            z-index: 10;
+        }
+
+        .close:hover {
+            color: #333;
+        }
+
+        .modal-header {
+            padding-right: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .modal-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #2d3748;
+        }
+
+        .modal-iframe {
+            width: 100%;
+            height: 500px;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            background: white;
+        }
+
+        /* Project Demo Styles */
+        .demo-container {
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            margin: 1rem 0;
+        }
+
+        /* Calculator Demo Styles */
+        .calculator {
+            max-width: 300px;
+            margin: 0 auto;
+            background: #2d3748;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .calculator-display {
+            background: #1a202c;
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: right;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .calculator-buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+        }
+
+        .calc-btn {
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .calc-btn.number {
+            background: #4a5568;
+            color: white;
+        }
+
+        .calc-btn.operator {
+            background: #ed8936;
+            color: white;
+        }
+
+        .calc-btn.clear {
+            background: #e53e3e;
+            color: white;
+        }
+
+        .calc-btn.equals {
+            background: #38a169;
+            color: white;
+        }
+
+        .calc-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        /* Todo Demo Styles */
+        .todo-app {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .todo-header {
+            background: linear-gradient(45deg, #43e97b, #38f9d7);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .todo-input-section {
+            padding: 1.5rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .todo-input {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .todo-input:focus {
+            border-color: #43e97b;
+        }
+
+        .todo-list {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            border-bottom: 1px solid #f7fafc;
+            transition: background 0.2s ease;
+        }
+
+        .todo-item:hover {
+            background: #f7fafc;
+        }
+
+        .todo-checkbox {
+            margin-right: 1rem;
+            width: 20px;
+            height: 20px;
+        }
+
+        .todo-text {
+            flex: 1;
+            font-size: 1rem;
+        }
+
+        .todo-text.completed {
+            text-decoration: line-through;
+            opacity: 0.6;
+        }
+
+        .todo-delete {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .todo-delete:hover {
+            background: #c53030;
+        }
+
+        /* Weather Demo Styles */
+        .weather-app {
+            max-width: 400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #74b9ff, #0984e3);
+            border-radius: 20px;
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .weather-search {
+            margin-bottom: 2rem;
+        }
+
+        .weather-input {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            text-align: center;
+            outline: none;
+        }
+
+        .weather-info {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .weather-city {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .weather-temp {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .weather-desc {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .weather-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .weather-detail {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav {
+                padding: 0 1rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+                gap: 0.5rem;
+            }
+
+            .filter-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                width: 98%;
+                margin: 1% auto;
+                padding: 1rem;
+            }
+
+            .modal-iframe {
+                height: 400px;
+            }
+        }
+
+        /* Loading Animation */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4c51bf;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">WD</div>
+                <span>WebDev Projects</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#projects" class="cta-button">Explore Projects →</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-badge">🚀 8+ Working Demos Available</div>
+            <h1>Frontend Development<br>Project Collection</h1>
+            <p>Master web development with our curated collection of interactive projects with live demos and source code</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">Explore All Projects</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Interactive Demos</div>
+                    <h2>Explore Our Complete<br>Project Collection</h2>
+                    <p>Try out our JavaScript projects with working demos and downloadable source code</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                    <button class="filter-btn" data-filter="advanced">Advanced</button>
+                    <button class="filter-btn" data-filter="games">Games</button>
+                    <button class="filter-btn" data-filter="utilities">Utilities</button>
+                </div>
+
+                <!-- Loading -->
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Loading projects...</p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Impact</h2>
+                    <p>Helping developers worldwide learn through practical projects</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">8+</div>
+                        <div class="stat-label">Live Demos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Learners</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Free</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Available</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Project Demo</h2>
+            </div>
+            <div id="demoContainer" class="demo-container">
+                <!-- Demo content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+   <script>
+// Sample projects data with working demos
+const projects = [
+    {
+        id: 1,
+        title: "Calculator",
+        description: "A modern calculator with basic arithmetic operations and a sleek UI design.",
+        category: "beginner",
+        tags: ["Popular", "Essential"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        preview: "calculator",
+        codeUrl: "https://github.com/siddique-17/mini-projects/tree/main/projects/calculator",
+        difficulty: "Beginner",
+        hasDemo: true
+    },
+    {
+        id: 2,
+        title: "Todo List App",
+        description: "A comprehensive todo application with add, edit, delete, and filter functionality.",
+        category: "beginner",
+        tags: ["Popular"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        preview: "todo",
+        codeUrl: "https://github.com/siddique-17/todo-app",
+        difficulty: "Beginner",
+        hasDemo: true
+    },
+    {
+        id: 3,
+        title: "Weather App",
+        description: "Get real-time weather information for any city with a beautiful, responsive interface.",
+        category: "intermediate",
+        tags: ["API", "Featured"],
+        tech: ["HTML", "CSS", "JavaScript", "API"],
+        preview: "weather",
+        codeUrl: "https://github.com/siddique-17/weather-app",
+        difficulty: "Intermediate",
+        hasDemo: true
+    },
+    {
+        id: 4,
+        title: "Quiz Application",
+        description: "An interactive quiz app with multiple choice questions, scoring, and progress tracking.",
+        category: "intermediate",
+        tags: ["Interactive"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        preview: "quiz",
+        codeUrl: "https://github.com/siddique-17/quiz-app",
+        difficulty: "Intermediate",
+        hasDemo: true
+    },
+    {
+        id: 5,
+        title: "Image Slider",
+        description: "A responsive image carousel with smooth transitions and navigation controls.",
+        category: "beginner",
+        tags: ["UI"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        preview: "slider",
+        codeUrl: "https://github.com/siddique-17/image-slider",
+        difficulty: "Beginner",
+        hasDemo: true
+    },
+    {
+        id: 6,
+        title: "Memory Game",
+        description: "Test your memory with this engaging card matching game featuring smooth animations.",
+        category: "games",
+        tags: ["Game", "Fun"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        preview: "default",
+        codeUrl: "https://github.com/siddique-17/memory-game",
+        difficulty: "Intermediate",
+        hasDemo: true
+    },
+    {
+        id: 7,
+        title: "Expense Tracker",
+        description: "Keep track of your expenses with charts, categories, and budget management.",
+        category: "utilities",
+        tags: ["Practical"],
+        tech: ["HTML", "CSS", "JavaScript", "Chart.js"],
+        preview: "default",
+        codeUrl: "https://github.com/siddique-17/expense-tracker",
+        difficulty: "Advanced",
+        hasDemo: true
+    },
+    {
+        id: 8,
+        title: "Password Generator",
+        description: "Generate secure passwords with customizable length and character options.",
+        category: "utilities",
+        tags: ["Security"],
+        tech: ["HTML", "CSS", "JavaScript"],
+        preview: "default",
+        codeUrl: "https://github.com/siddique-17/password-generator",
+        difficulty: "Beginner",
+        hasDemo: true
+    }
+];
+
+// DOM Elements
+const projectsGrid = document.getElementById('projectsGrid');
+const filterButtons = document.querySelectorAll('.filter-btn');
+const loading = document.getElementById('loading');
+const modal = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modalTitle');
+const demoContainer = document.getElementById('demoContainer');
+const closeModal = document.querySelector('.close');
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+    renderProjects(projects);
+    setupEventListeners();
+});
+
+// Render projects
+function renderProjects(projectsToRender) {
+    projectsGrid.innerHTML = '';
+    
+    projectsToRender.forEach(project => {
+        const projectCard = createProjectCard(project);
+        projectsGrid.appendChild(projectCard);
+    });
+}
+
+// Create project card
+function createProjectCard(project) {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.dataset.category = project.category;
+    
+    card.innerHTML = `
+        <div class="project-preview ${project.preview}">
+            <div class="project-tags">
+                ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
+            </div>
+        </div>
+        <div class="project-content">
+            <h3 class="project-title">${project.title}</h3>
+            <p class="project-description">${project.description}</p>
+            <div class="project-tech">
+                ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+            </div>
+            <div class="project-actions">
+                <button class="action-btn btn-demo" onclick="openProjectDemo(${project.id})" ${!project.hasDemo ? 'style="opacity: 0.6; cursor: not-allowed;"' : ''}>
+                    ${project.hasDemo ? '👁 Live Demo' : '🚧 Demo Soon'}
+                </button>
+                <a href="${project.codeUrl}" target="_blank" class="action-btn btn-code">💻 Source Code</a>
+            </div>
+        </div>
+    `;
+    
+    return card;
+}
+
+// Setup event listeners
+function setupEventListeners() {
+    // Filter buttons
+    filterButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const filter = this.dataset.filter;
+            
+            // Update active button
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter projects
+            filterProjects(filter);
+        });
+    });
+
+    // Close modal
+    closeModal.addEventListener('click', closeProjectModal);
+    
+    // Close modal on outside click
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeProjectModal();
+        }
+    });
+
+    // Smooth scrolling for navigation
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Filter projects
+function filterProjects(filter) {
+    const cards = document.querySelectorAll('.project-card');
+    
+    cards.forEach(card => {
+        const category = card.dataset.category;
+        if (filter === 'all' || category === filter) {
+            card.style.display = 'block';
+            card.style.animation = 'fadeIn 0.5s ease-in';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+// Open project demo
+function openProjectDemo(projectId) {
+    const project = projects.find(p => p.id === projectId);
+    if (!project || !project.hasDemo) {
+        alert('Demo coming soon! Check out the source code for now.');
+        return;
+    }
+
+    modalTitle.textContent = `${project.title} - Live Demo`;
+    
+    // Create the appropriate demo
+    let demoHTML = '';
+    switch(project.id) {
+        case 1: // Calculator
+            demoHTML = createCalculatorDemo();
+            break;
+        case 2: // Todo App
+            demoHTML = createTodoDemo();
+            break;
+        case 3: // Weather App
+            demoHTML = createWeatherDemo();
+            break;
+        case 4: // Quiz Application
+            demoHTML = createQuizDemo();
+            break;
+        case 5: // Image Slider
+            demoHTML = createSliderDemo();
+            break;
+        case 6: // Memory Game
+            demoHTML = createMemoryGameDemo();
+            break;
+        case 7: // Expense Tracker
+            demoHTML = createExpenseTrackerDemo();
+            break;
+        case 8: // Password Generator
+            demoHTML = createPasswordGeneratorDemo();
+            break;
+        default:
+            demoHTML = '<p>Demo not available yet.</p>';
+    }
+    
+    demoContainer.innerHTML = demoHTML;
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    
+    // Initialize demo functionality
+    initializeDemoFunctionality(project.id);
+}
+
+// Create Calculator Demo
+function createCalculatorDemo() {
+    return `
+        <div class="calculator">
+            <div class="calculator-display" id="calcDisplay">0</div>
+            <div class="calculator-buttons">
+                <button class="calc-btn clear" onclick="clearCalculator()">C</button>
+                <button class="calc-btn operator" onclick="deleteLast()">⌫</button>
+                <button class="calc-btn operator" onclick="appendToDisplay('/')">/</button>
+                <button class="calc-btn operator" onclick="appendToDisplay('*')">×</button>
+                
+                <button class="calc-btn number" onclick="appendToDisplay('7')">7</button>
+                <button class="calc-btn number" onclick="appendToDisplay('8')">8</button>
+                <button class="calc-btn number" onclick="appendToDisplay('9')">9</button>
+                <button class="calc-btn operator" onclick="appendToDisplay('-')">-</button>
+                
+                <button class="calc-btn number" onclick="appendToDisplay('4')">4</button>
+                <button class="calc-btn number" onclick="appendToDisplay('5')">5</button>
+                <button class="calc-btn number" onclick="appendToDisplay('6')">6</button>
+                <button class="calc-btn operator" onclick="appendToDisplay('+')">+</button>
+                
+                <button class="calc-btn number" onclick="appendToDisplay('1')">1</button>
+                <button class="calc-btn number" onclick="appendToDisplay('2')">2</button>
+                <button class="calc-btn number" onclick="appendToDisplay('3')">3</button>
+                <button class="calc-btn equals" onclick="calculateResult()" rowspan="2">=</button>
+                
+                <button class="calc-btn number" onclick="appendToDisplay('0')" style="grid-column: span 2;">0</button>
+                <button class="calc-btn number" onclick="appendToDisplay('.')">.</button>
+            </div>
+        </div>
+    `;
+}
+
+// Create Todo Demo
+function createTodoDemo() {
+    return `
+        <div class="todo-app">
+            <div class="todo-header">
+                <h2>📝 My Todo List</h2>
+                <p>Stay organized and productive</p>
+            </div>
+            <div class="todo-input-section">
+                <input type="text" class="todo-input" id="todoInput" placeholder="Add a new task..." maxlength="100">
+            </div>
+            <div class="todo-list" id="todoList">
+                <div class="todo-item">
+                    <input type="checkbox" class="todo-checkbox">
+                    <span class="todo-text">Sample task - try adding your own!</span>
+                    <button class="todo-delete" onclick="this.parentElement.remove()">Delete</button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+// Create Weather Demo
+function createWeatherDemo() {
+    return `
+        <div class="weather-app">
+            <div class="weather-search">
+                <input type="text" class="weather-input" id="weatherInput" placeholder="Enter city name..." value="New York">
+            </div>
+            <div class="weather-info">
+                <div class="weather-city" id="weatherCity">New York</div>
+                <div class="weather-temp" id="weatherTemp">22°C</div>
+                <div class="weather-desc" id="weatherDesc">🌤️ Partly Cloudy</div>
+                <div class="weather-details">
+                    <div class="weather-detail">
+                        <div>💨 Wind</div>
+                        <div id="weatherWind">15 km/h</div>
+                    </div>
+                    <div class="weather-detail">
+                        <div>💧 Humidity</div>
+                        <div id="weatherHumidity">65%</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                💡 This is a demo with sample data. The real app connects to weather APIs.
+            </div>
+        </div>
+    `;
+}
+
+// Create Quiz Demo
+function createQuizDemo() {
+    return `
+        <div class="quiz-app" style="max-width: 500px; margin: 0 auto; background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #2d3748;">Quiz Time!</h2>
+            <div id="quizQuestion" style="margin-bottom: 1rem; font-size: 1.2rem; color: #333;">What is the capital of France?</div>
+            <div id="quizOptions" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                <button class="quiz-option" onclick="selectQuizOption(this, 'Paris')">Paris</button>
+                <button class="quiz-option" onclick="selectQuizOption(this, 'London')">London</button>
+                <button class="quiz-option" onclick="selectQuizOption(this, 'Berlin')">Berlin</button>
+                <button class="quiz-option" onclick="selectQuizOption(this, 'Madrid')">Madrid</button>
+            </div>
+            <div id="quizResult" style="margin-top: 1rem; text-align: center; font-weight: 500;"></div>
+            <button class="action-btn btn-demo" style="margin-top: 1rem; width: 100%;" onclick="resetQuiz()">Next Question</button>
+        </div>
+    `;
+}
+
+// Create Image Slider Demo
+function createSliderDemo() {
+    return `
+        <div class="slider-app" style="max-width: 600px; margin: 0 auto; background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <div class="slider-container" style="position: relative; overflow: hidden; height: 300px;">
+                <div id="sliderImages" style="display: flex; transition: transform 0.5s ease;">
+                    <div class="slider-image" style="min-width: 100%; height: 300px; background: #667eea; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Image 1</div>
+                    <div class="slider-image" style="min-width: 100%; height: 300px; background: #764ba2; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Image 2</div>
+                    <div class="slider-image" style="min-width: 100%; height: 300px; background: #4c51bf; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">Image 3</div>
+                </div>
+                <button class="slider-btn prev" onclick="moveSlider(-1)" style="position: absolute; top: 50%; left: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 0.5rem; cursor: pointer;">&#10094;</button>
+                <button class="slider-btn next" onclick="moveSlider(1)" style="position: absolute; top: 50%; right: 10px; transform: translateY(-50%); background: rgba(0,0,0,0.5); color: white; border: none; padding: 0.5rem; cursor: pointer;">&#10095;</button>
+            </div>
+        </div>
+    `;
+}
+
+// Create Memory Game Demo
+function createMemoryGameDemo() {
+    return `
+        <div class="memory-game" style="max-width: 400px; margin: 0 auto; background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #2d3748;">Memory Game</h2>
+            <div id="memoryGrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+                <!-- Cards will be dynamically added -->
+            </div>
+            <div id="memoryResult" style="margin-top: 1rem; text-align: center; font-weight: 500;"></div>
+            <button class="action-btn btn-demo" style="margin-top: 1rem; width: 100%;" onclick="resetMemoryGame()">Restart Game</button>
+        </div>
+    `;
+}
+
+// Create Expense Tracker Demo
+function createExpenseTrackerDemo() {
+    return `
+        <div class="expense-tracker" style="max-width: 500px; margin: 0 auto; background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #2d3748;">Expense Tracker</h2>
+            <div style="margin-bottom: 1rem;">
+                <input type="text" id="expenseDescription" placeholder="Description" style="width: 60%; padding: 0.5rem; border: 2px solid #e2e8f0; border-radius: 5px; margin-right: 0.5rem;">
+                <input type="number" id="expenseAmount" placeholder="Amount" style="width: 30%; padding: 0.5rem; border: 2px solid #e2e8f0; border-radius: 5px;">
+            </div>
+            <button class="action-btn btn-demo" style="width: 100%;" onclick="addExpense()">Add Expense</button>
+            <div id="expenseList" style="margin-top: 1rem; max-height: 200px; overflow-y: auto;"></div>
+            <div id="expenseTotal" style="margin-top: 1rem; text-align: center; font-weight: 500;">Total: $0</div>
+        </div>
+    `;
+}
+
+// Create Password Generator Demo
+function createPasswordGeneratorDemo() {
+    return `
+        <div class="password-generator" style="max-width: 400px; margin: 0 auto; background: white; border-radius: 15px; padding: 2rem; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);">
+            <h2 style="text-align: center; color: #2d3748;">Password Generator</h2>
+            <div style="margin-bottom: 1rem;">
+                <input type="text" id="passwordOutput" readonly style="width: 100%; padding: 0.5rem; border: 2px solid #e2e8f0; border-radius: 5px; text-align: center;">
+            </div>
+            <div style="margin-bottom: 1rem;">
+                <label>Length: <input type="number" id="passwordLength" value="12" min="4" max="20" style="width: 60px; padding: 0.5rem; border: 2px solid #e2e8f0; border-radius: 5px;"></label>
+            </div>
+            <button class="action-btn btn-demo" style="width: 100%;" onclick="generatePassword()">Generate Password</button>
+        </div>
+    `;
+}
+
+// Initialize demo functionality
+function initializeDemoFunctionality(projectId) {
+    switch(projectId) {
+        case 1: // Calculator
+            initializeCalculator();
+            break;
+        case 2: // Todo App
+            initializeTodo();
+            break;
+        case 3: // Weather App
+            initializeWeather();
+            break;
+        case 4: // Quiz App
+            initializeQuiz();
+            break;
+        case 5: // Image Slider
+            initializeSlider();
+            break;
+        case 6: // Memory Game
+            initializeMemoryGame();
+            break;
+        case 7: // Expense Tracker
+            initializeExpenseTracker();
+            break;
+        case 8: // Password Generator
+            initializePasswordGenerator();
+            break;
+    }
+}
+
+// Calculator functionality
+function initializeCalculator() {
+    window.currentInput = '';
+    window.operator = '';
+    window.previousInput = '';
+}
+
+function appendToDisplay(value) {
+    const display = document.getElementById('calcDisplay');
+    if (display.textContent === '0' || display.textContent === 'Error') {
+        display.textContent = value;
+    } else {
+        display.textContent += value;
+    }
+}
+
+function clearCalculator() {
+    document.getElementById('calcDisplay').textContent = '0';
+    window.currentInput = '';
+    window.operator = '';
+    window.previousInput = '';
+}
+
+function deleteLast() {
+    const display = document.getElementById('calcDisplay');
+    if (display.textContent.length > 1) {
+        display.textContent = display.textContent.slice(0, -1);
+    } else {
+        display.textContent = '0';
+    }
+}
+
+function calculateResult() {
+    const display = document.getElementById('calcDisplay');
+    try {
+        const result = eval(display.textContent.replace('×', '*'));
+        display.textContent = result;
+    } catch (error) {
+        display.textContent = 'Error';
+    }
+}
+
+// Todo functionality
+function initializeTodo() {
+    const todoInput = document.getElementById('todoInput');
+    const todoList = document.getElementById('todoList');
+
+    todoInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter' && this.value.trim()) {
+            addTodoItem(this.value.trim());
+            this.value = '';
+        }
+    });
+}
+
+function addTodoItem(text) {
+    const todoList = document.getElementById('todoList');
+    const todoItem = document.createElement('div');
+    todoItem.className = 'todo-item';
+    todoItem.innerHTML = `
+        <input type="checkbox" class="todo-checkbox" onchange="toggleTodoComplete(this)">
+        <span class="todo-text">${text}</span>
+        <button class="todo-delete" onclick="this.parentElement.remove()">Delete</button>
+    `;
+    todoList.appendChild(todoItem);
+}
+
+function toggleTodoComplete(checkbox) {
+    const todoText = checkbox.nextElementSibling;
+    if (checkbox.checked) {
+        todoText.classList.add('completed');
+    } else {
+        todoText.classList.remove('completed');
+    }
+}
+
+// Weather functionality
+function initializeWeather() {
+    const weatherInput = document.getElementById('weatherInput');
+    const sampleWeatherData = {
+        'New York': { temp: '22°C', desc: '🌤️ Partly Cloudy', wind: '15 km/h', humidity: '65%' },
+        'London': { temp: '18°C', desc: '🌧️ Light Rain', wind: '12 km/h', humidity: '78%' },
+        'Tokyo': { temp: '26°C', desc: '☀️ Sunny', wind: '8 km/h', humidity: '55%' },
+        'Paris': { temp: '20°C', desc: '☁️ Cloudy', wind: '10 km/h', humidity: '70%' },
+        'Mumbai': { temp: '32°C', desc: '☀️ Hot & Sunny', wind: '18 km/h', humidity: '82%' }
+    };
+
+    weatherInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            const city = this.value.trim();
+            updateWeatherDisplay(city, sampleWeatherData);
+        }
+    });
+}
+
+function updateWeatherDisplay(city, weatherData) {
+    const data = weatherData[city] || {
+        temp: '25°C',
+        desc: '🌤️ Weather Info',
+        wind: '10 km/h',
+        humidity: '60%'
+    };
+
+    document.getElementById('weatherCity').textContent = city;
+    document.getElementById('weatherTemp').textContent = data.temp;
+    document.getElementById('weatherDesc').textContent = data.desc;
+    document.getElementById('weatherWind').textContent = data.wind;
+    document.getElementById('weatherHumidity').textContent = data.humidity;
+}
+
+// Quiz functionality
+function initializeQuiz() {
+    window.currentQuizIndex = 0;
+    window.quizQuestions = [
+        {
+            question: "What is the capital of France?",
+            options: ["Paris", "London", "Berlin", "Madrid"],
+            answer: "Paris"
+        },
+        {
+            question: "Which planet is known as the Red Planet?",
+            options: ["Mars", "Jupiter", "Venus", "Mercury"],
+            answer: "Mars"
+        }
+    ];
+    resetQuiz();
+}
+
+function selectQuizOption(button, selectedAnswer) {
+    const resultDiv = document.getElementById('quizResult');
+    const currentQuestion = window.quizQuestions[window.currentQuizIndex];
+    if (selectedAnswer === currentQuestion.answer) {
+        resultDiv.textContent = "Correct!";
+        resultDiv.style.color = '#38a169';
+    } else {
+        resultDiv.textContent = `Incorrect. The correct answer is ${currentQuestion.answer}.`;
+        resultDiv.style.color = '#e53e3e';
+    }
+}
+
+function resetQuiz() {
+    window.currentQuizIndex = (window.currentQuizIndex + 1) % window.quizQuestions.length;
+    const questionDiv = document.getElementById('quizQuestion');
+    const optionsDiv = document.getElementById('quizOptions');
+    const resultDiv = document.getElementById('quizResult');
+    const currentQuestion = window.quizQuestions[window.currentQuizIndex];
+    
+    questionDiv.textContent = currentQuestion.question;
+    optionsDiv.innerHTML = currentQuestion.options
+        .map(option => `<button class="quiz-option" onclick="selectQuizOption(this, '${option}')">${option}</button>`)
+        .join('');
+    resultDiv.textContent = '';
+
+    // Apply button styles
+    document.querySelectorAll('.quiz-option').forEach(btn => {
+        btn.style.padding = '0.75rem';
+        btn.style.border = '2px solid #e2e8f0';
+        btn.style.borderRadius = '10px';
+        btn.style.background = 'white';
+        btn.style.cursor = 'pointer';
+        btn.style.transition = 'all 0.3s ease';
+        btn.addEventListener('mouseover', () => {
+            btn.style.background = '#f7fafc';
+            btn.style.transform = 'translateY(-2px)';
+        });
+        btn.addEventListener('mouseout', () => {
+            btn.style.background = 'white';
+            btn.style.transform = 'translateY(0)';
+        });
+    });
+}
+
+// Image Slider functionality
+function initializeSlider() {
+    window.currentSlide = 0;
+    window.totalSlides = document.querySelectorAll('.slider-image').length;
+}
+
+function moveSlider(direction) {
+    const sliderImages = document.getElementById('sliderImages');
+    window.currentSlide = (window.currentSlide + direction + window.totalSlides) % window.totalSlides;
+    sliderImages.style.transform = `translateX(-${window.currentSlide * 100}%)`;
+}
+
+// Memory Game functionality
+function initializeMemoryGame() {
+    window.memoryCards = [
+        '🍎', '🍎', '🍊', '🍊', '🍇', '🍇', '🍉', '🍉'
+    ].sort(() => Math.random() - 0.5);
+    window.flippedCards = [];
+    window.matchedCards = [];
+
+    const memoryGrid = document.getElementById('memoryGrid');
+    memoryGrid.innerHTML = window.memoryCards
+        .map((card, index) => `
+            <div class="memory-card" onclick="flipCard(${index})" style="width: 60px; height: 60px; background: #4c51bf; color: white; display: flex; align-items: center; justify-content: center; border-radius: 5px; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease;">
+                ?
+            </div>
+        `)
+        .join('');
+}
+
+function flipCard(index) {
+    const memoryGrid = document.getElementById('memoryGrid');
+    const cards = memoryGrid.children;
+    const resultDiv = document.getElementById('memoryResult');
+
+    if (window.flippedCards.length < 2 && !window.flippedCards.includes(index) && !window.matchedCards.includes(index)) {
+        cards[index].textContent = window.memoryCards[index];
+        window.flippedCards.push(index);
+
+        if (window.flippedCards.length === 2) {
+            const [first, second] = window.flippedCards;
+            if (window.memoryCards[first] === window.memoryCards[second]) {
+                window.matchedCards.push(first, second);
+                resultDiv.textContent = 'Match!';
+                resultDiv.style.color = '#38a169';
+                if (window.matchedCards.length === window.memoryCards.length) {
+                    resultDiv.textContent = 'You won!';
+                }
+            } else {
+                setTimeout(() => {
+                    cards[first].textContent = '?';
+                    cards[second].textContent = '?';
+                    resultDiv.textContent = 'Try again!';
+                    resultDiv.style.color = '#e53e3e';
+                }, 1000);
+            }
+            window.flippedCards = [];
+        }
+    }
+}
+
+function resetMemoryGame() {
+    initializeMemoryGame();
+}
+
+// Expense Tracker functionality
+function initializeExpenseTracker() {
+    window.expenses = [];
+    updateExpenseTotal();
+}
+
+function addExpense() {
+    const descriptionInput = document.getElementById('expenseDescription');
+    const amountInput = document.getElementById('expenseAmount');
+    const expenseList = document.getElementById('expenseList');
+
+    const description = descriptionInput.value.trim();
+    const amount = parseFloat(amountInput.value);
+
+    if (description && amount > 0) {
+        window.expenses.push({ description, amount });
+        const expenseItem = document.createElement('div');
+        expenseItem.style.padding = '0.5rem';
+        expenseItem.style.borderBottom = '1px solid #e2e8f0';
+        expenseItem.innerHTML = `
+            <span>${description}</span>
+            <span style="float: right;">$${amount.toFixed(2)}</span>
+        `;
+        expenseList.appendChild(expenseItem);
+        updateExpenseTotal();
+        descriptionInput.value = '';
+        amountInput.value = '';
+    }
+}
+
+function updateExpenseTotal() {
+    const total = window.expenses.reduce((sum, expense) => sum + expense.amount, 0);
+    document.getElementById('expenseTotal').textContent = `Total: $${total.toFixed(2)}`;
+}
+
+// Password Generator functionality
+function initializePasswordGenerator() {
+    generatePassword();
+}
+
+function generatePassword() {
+    const lengthInput = document.getElementById('passwordLength');
+    const output = document.getElementById('passwordOutput');
+    const length = parseInt(lengthInput.value);
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
+    let password = '';
+
+    for (let i = 0; i < length; i++) {
+        password += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+
+    output.value = password;
+}
+
+// Close project modal
+function closeProjectModal() {
+    modal.style.display = 'none';
+    demoContainer.innerHTML = '';
+    document.body.style.overflow = 'auto';
+}
+
+// Add keyboard navigation for modal
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+        closeProjectModal();
+    }
+});
+
+// Add scroll animations
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeIn 0.6s ease-out';
+        }
+    });
+}, observerOptions);
+
+// Observe project cards
+setTimeout(() => {
+    const cards = document.querySelectorAll('.project-card');
+    cards.forEach(card => observer.observe(card));
+}, 100);
+</script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,18 @@
+body {
+  font-family: sans-serif;
+  text-align: center;
+  background: #ffeaa7;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  gap: 10px;
+  justify-content: center;
+  margin-top: 30px;
+}
+.grid img {
+  width: 100px;
+  height: 100px;
+  border-radius: 12px;
+  cursor: pointer;
+}

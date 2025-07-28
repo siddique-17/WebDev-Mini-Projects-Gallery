@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dev Projects - Master Frontend Development</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <div class="logo-icon">WD</div>
+                <span>WebDev Projects</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="#projects" class="cta-button">Explore Projects →</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-badge">🚀 28+ Working Demos Available</div>
+            <h1>Frontend Development<br>Project Collection</h1>
+            <p>Master web development with our curated collection of interactive projects with live demos and source code</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-primary">Explore All Projects</a>
+                <a href="#about" class="btn-secondary">Learn More</a>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects-section" id="projects">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Interactive Demos</div>
+                    <h2>Explore Our Complete<br>Project Collection</h2>
+                    <p>Try out our JavaScript projects with working demos and downloadable source code</p>
+                </div>
+
+                <!-- Filter Buttons -->
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="beginner">Beginner</button>
+                    <button class="filter-btn" data-filter="intermediate">Intermediate</button>
+                    <button class="filter-btn" data-filter="advanced">Advanced</button>
+                    <button class="filter-btn" data-filter="games">Games</button>
+                    <button class="filter-btn" data-filter="utilities">Utilities</button>
+                </div>
+
+                <!-- Loading -->
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Loading projects...</p>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projectsGrid">
+                    <!-- Projects will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Our Impact</h2>
+                    <p>Helping developers worldwide learn through practical projects</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">28+</div>
+                        <div class="stat-label">Live Demos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">10K+</div>
+                        <div class="stat-label">Learners</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Free</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Available</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">About Us</div>
+                    <h2>Learn Web Development</h2>
+                    <p>Our mission is to empower developers with hands-on projects to master frontend development.</p>
+                </div>
+                <p style="text-align: center; max-width: 800px; margin: 0 auto;">
+                    WebDev Projects is a platform dedicated to providing practical, interactive projects to help developers learn and grow. 
+                    Each project comes with a live demo and source code, making it easy to understand and implement.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-badge">Get in Touch</div>
+                    <h2>Contact Us</h2>
+                    <p>Have questions or suggestions? Reach out to us!</p>
+                </div>
+                <form style="max-width: 600px; margin: 0 auto;">
+                    <input type="text" placeholder="Name" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 2px solid #e2e8f0; border-radius: 5px;">
+                    <input type="email" placeholder="Email" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 2px solid #e2e8f0; border-radius: 5px;">
+                    <textarea placeholder="Message" style="width: 100%; padding: 0.75rem; margin-bottom: 1rem; border: 2px solid #e2e8f0; border-radius: 5px; min-height: 100px;"></textarea>
+                    <button type="submit" class="action-btn btn-demo" style="width: 100%;">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
